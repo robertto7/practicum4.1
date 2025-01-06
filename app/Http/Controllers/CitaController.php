@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\prueba;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\NewDoctor;
+use App\Models\Cita;
 use Illuminate\Http\Request;
 
-class NewDoctor extends Controller
+class CitaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,7 +34,7 @@ class NewDoctor extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(NewDoctor $newDoctor)
+    public function show(Cita $cita)
     {
         //
     }
@@ -43,7 +42,7 @@ class NewDoctor extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(NewDoctor $newDoctor)
+    public function edit(Cita $cita)
     {
         //
     }
@@ -51,7 +50,7 @@ class NewDoctor extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, NewDoctor $newDoctor)
+    public function update(Request $request, Cita $cita)
     {
         //
     }
@@ -59,7 +58,7 @@ class NewDoctor extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(NewDoctor $newDoctor)
+    public function destroy(Cita $cita)
     {
         //
     }
