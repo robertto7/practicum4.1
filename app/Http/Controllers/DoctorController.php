@@ -12,7 +12,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        //
+        $doctors = Doctor::all();
+        return view('doctors.index', compact('doctors'));
     }
 
     /**
@@ -20,7 +21,7 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        //
+        return view('doctors.create');
     }
 
     /**
@@ -28,7 +29,14 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'specialty' => 'required|string|max:255',
+            'contact' => 'required|string|max:255',
+        ]);
+
+        Doctor::create($request->all());
+        return redirect()->route('doctors.index')->with('success','Doctor creado satisfactoriamente');
     }
 
     /**
@@ -36,7 +44,7 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        //
+        return view('doctors.show', compact('doctor'));
     }
 
     /**
@@ -44,7 +52,7 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
-        //
+        return view('doctors.edit', compact('doctor'));
     }
 
     /**
@@ -52,7 +60,14 @@ class DoctorController extends Controller
      */
     public function update(Request $request, Doctor $doctor)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'specialty' => 'required|string|max:255',
+            'contact' => 'required|string|max:255',
+        ]);
+
+        $doctor->update($request->all());
+        return redirect()->route('doctors.index')->with('success','Doctor actualizados satisfactoriamente');
     }
 
     /**
@@ -60,6 +75,8 @@ class DoctorController extends Controller
      */
     public function destroy(Doctor $doctor)
     {
-        //
+        $doctor->delete();
+        return redirect()->route('doctors.index')->with('success','Doctor eliminado satisfactoriamente');
+
     }
 }

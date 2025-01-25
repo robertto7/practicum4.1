@@ -27,7 +27,8 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="{{ route('home') }}">Home</a>
                     </li>
-<li class="nav-item">
+                    <li class="nav-item">
+
                         <a class="nav-link" href="{{ route('patients.index') }}">Patients</a>
                     </li>
                     <li class="nav-item">
@@ -44,7 +45,7 @@
 
 <footer class="bg-light text-center text-lg-start mt-4 py-3">
         <div class="text-center text-muted">
-            &copy; {{ date('Y') }} Hospital Isidro Ayora - Loja.
+            &copy; {{ date('Y') }} Hospital Isidro Ayora Loja.
         </div>
     </footer>
     <!-- Bootstrap JS -->

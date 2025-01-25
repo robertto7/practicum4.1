@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\DoctorController;
 use Illuminate\Support\Facades\Route;
+use Monolog\Handler\DoctrineCouchDBHandler;
+use App\Http\Controllers\PatientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +29,8 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::resource('patients',UserController::class);
-Route::resource('doctors',UserController::class);
+
+Route::resource('patients', PatientController::class);
+Route::resource('doctors', DoctorController::class);
+
+?>
