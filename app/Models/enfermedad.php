@@ -2,29 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class Enfermedad extends Model
 {
     use HasFactory;
-
-    // campos visibles 
-
+    protected $table = 'enfermedades';
     protected $fillable = [
-        'fecha'
-        'hora'
-        'paciente_id'
-        'enfermedad_id'
+        'nombre',
+        'descripcion',
     ];
 
-    // relacion de entidad con enfermedad
-    
-    public function enfermedad() {
+    public function citasMedicas(){
 
+        return $this->hasMany(CitaMedica::class);
         
-            return $this->belongsTo(Enfermedad::class);
-        };
     }
-    
+
 }

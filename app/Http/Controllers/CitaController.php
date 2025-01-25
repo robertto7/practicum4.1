@@ -12,7 +12,8 @@ class CitaController extends Controller
      */
     public function index()
     {
-        //
+        $cedulas = Doctor::all();
+        return view('doctors.index', compact('doctors'));
     }
 
     /**
@@ -20,7 +21,7 @@ class CitaController extends Controller
      */
     public function create()
     {
-        //
+        return view('doctors.create');
     }
 
     /**
@@ -28,38 +29,54 @@ class CitaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'specialty' => 'required|string|max:255',
+            'contact' => 'required|string|max:255',
+        ]);
+
+        Doctor::create($request->all());
+        return redirect()->route('doctors.index')->with('success','Doctor creado satisfactoriamente');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Cita $cita)
+    public function show(Doctor $doctor)
     {
-        //
+        return view('doctors.show', compact('doctor'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Cita $cita)
+    public function edit(Doctor $doctor)
     {
-        //
+        return view('doctors.edit', compact('doctor'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Cita $cita)
+    public function update(Request $request, Doctor $doctor)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'specialty' => 'required|string|max:255',
+            'contact' => 'required|string|max:255',
+        ]);
+
+        $doctor->update($request->all());
+        return redirect()->route('doctors.index')->with('success','Doctor actualizados satisfactoriamente');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cita $cita)
+    public function destroy(Doctor $doctor)
     {
-        //
+        $doctor->delete();
+        return redirect()->route('doctors.index')->with('success','Doctor eliminado satisfactoriamente');
+
     }
 }

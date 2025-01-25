@@ -2,27 +2,29 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class CitaMedica extends Model
 {
     use HasFactory;
 
-    // campos visibles 
+     // Si la tabla se llama exactamente 'citas_medicas':
+     protected $table = 'citas_medicas';
 
     protected $fillable = [
-        'fecha'
-        'hora'
-        'paciente_id'
-        'enfermedad_id'
+        'fecha',
+        'hora',
+        'paciente_id',
+        'doctor_id',
+        'enfermedad_id',
     ];
 
-    // relacion de entidad con enfermedad
-    
-    public function enfermedad() {
+    public function enfermedad(){
 
-        return 0;
+        return $this->belongsTo(Enfermedad::class);
+        
     }
-    
+
 }
