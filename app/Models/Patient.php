@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Patient extends Model
 {
     use HasFactory;
+    protected $table = 'patients';
     protected $fillable = [
         'name',
         'age',
@@ -16,5 +17,12 @@ class Patient extends Model
         'actions',
         
     ];
+
+    public function citasMedicas(){
+
+        return $this->hasMany(CitaMedica::class);
+        
+    }
+
 
 }

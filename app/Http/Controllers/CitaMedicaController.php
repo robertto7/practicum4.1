@@ -26,7 +26,9 @@ class CitaMedicaController extends Controller
     public function create()
     {
         $enfermedades = Enfermedad::all();
-        return view('citas_medicas.create', compact('enfermedades'));
+        $patients = Patient::all();
+        $doctors = Doctor::all();
+        return view('citas_medicas.create', compact('patients', 'doctors', 'enfermedades'));
     }
 
     /**

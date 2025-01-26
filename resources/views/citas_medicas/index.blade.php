@@ -20,7 +20,7 @@
                     <td>{{ $cita->id }}</td>
                     <td>{{ $cita->fecha }}</td>
                     <td>{{ $cita->hora }}</td>
-                    <td>{{ $cita->enfermedad->nombre ?? 'Sin asignar' }}</td>
+                    <td>{{ $cita->enfermedad->nombre ?? 'Sin especificar' }}</td>
                     <td>
                         <a href="{{ route('citas_medicas.edit', $cita->id) }}" class="btn btn-warning">Editar</a>
                         <form action="{{ route('citas_medicas.destroy', $cita->id) }}" method="POST" class="d-inline">

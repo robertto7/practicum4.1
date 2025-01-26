@@ -29,10 +29,10 @@
                         <a class="nav-link" href="{{ route('doctors.index') }}">Doctores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('citas_medicas.index') }}">Citas Medicas</a>
+                        <a class="nav-link" href="{{ route('enfermedades.index') }}">Enfermedades</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('enfermedades.index') }}">Enfermedades</a>
+                        <a class="nav-link" href="{{ route('citas_medicas.index') }}">Citas Medicas</a>
                     </li>
                 </ul>
             </div>
